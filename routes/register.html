@@ -1,0 +1,50 @@
+<html>
+
+<head>
+    <title>Online Voting system</title>
+    <link rel="stylesheet" href="../css/stylesheet.css">
+</head>
+
+<body>
+    <style>
+       img{
+           position: fixed;
+           min-height: 100%;
+           min-width: 100%;
+           right: 0;
+           bottom: 0;
+           z-index: -1;
+           opacity: 0.6;
+       }
+        #address {
+            height: auto;
+        }
+
+        #btn {
+            background-color: cornflowerblue;
+        }
+    </style>
+    <center>
+    <img src="../votes.jpg">
+    <div id="headersection">
+        <h1 style="color: crimson;">online voting system</h1>
+    </div>
+    <hr>
+    <h1 style="color: rgb(42, 7, 245);">Registration</h1>
+    <form action="../api/register.php" method="POST">
+        <input type="text" name="name" placeholder="Enter Name"><br><br>
+        <input type="number" name="mobile" placeholder="Enter Mobile"><br><br>
+        <input type="password" name="password" placeholder="Enter Password"><br><br>
+        <input type="password" name="cpassword" placeholder="Confirm Password"><br><br>
+        <input id="address" type="text" name="address" placeholder="Enter Address"><br><br>
+        <b>Select Your Role:</b><select name="role">
+            <option value="1">Voter</option>
+            <option value="2">Group</option>
+        </select><br><br>
+        <button id="btn">Register</button><br><br>
+        Already User?<a href="../index.html">login here</a>
+    </form>
+</center>
+</body>
+
+</html>
