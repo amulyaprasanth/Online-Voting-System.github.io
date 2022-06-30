@@ -19,18 +19,19 @@
 
 <html>
     <head>
-        <title>online voting system</title>
+        <title>Online Voting System</title>
         <link rel="stylesheet" href="../css/stylesheet.css">
+        <link rel="icon" type="image/x-icon" href="../favicon.png">
     </head>
     <body>
         <style>
             body{
-                background: #8cfad3;
+                background: #333C83;
             }
             #backbtn{
                 padding: 5px;
                 border-radius: 5px;
-                background-color: cornflowerblue;
+                background-color: #371B58;
                 font-size: 15px;
                 color: white;
                 float: left;
@@ -39,7 +40,7 @@
             #logoutbtn{
                 padding: 5px;
                 border-radius: 5px;
-                background-color: cornflowerblue;
+                background-color: #371B58;
                 font-size: 15px;
                 color: white;
                 float: right;
@@ -50,20 +51,26 @@
                 float:left;
                 background-color: white;
                 width= 40%;
-                padding: 80px;
+                padding: 50px;
+                margin-left: 60px;
+                margin-top: 90px;
+                
             }
             #group{
                 border: 1px solid black;
                 float: right;
                 width: 60%;
-                padding: 80px;
+                padding: 60px;
                 height: auto;
                 background: whitesmoke;
+                margin-top: 30px;
+                margin-right: 40px;
             }
             #votebtn{
                 padding: 5px;
+                margin-top: -55px;
                 border-radius: 5px;
-                background-color: cornflowerblue;
+                background-color: #371B58;
                 font-size: 15px;
                 color: white;
             }
@@ -91,7 +98,7 @@
             <div id="headersection">
             <a href="../"><button id="backbtn">Back</button> </a>
             <a href="logout.php"><button id="logoutbtn"> Logout</button></a>
-                <h1>online voting system</h1>
+                <h1>Online Voting System</h1>
              </div>
              </center>
             <hr>
@@ -99,7 +106,7 @@
                 <div id="profile">
                     <b style="float: left">Name:</b> <?php echo $userdata['name']?> <br><br>
                     <b>Mobile:</b> <?php echo $userdata['mobile']?> <br><br>
-                    <b>Address:</b> <?php echo $userdata['address']?> <br><br>
+                    <b>Address: </b> <?php echo $userdata['address']?> <br><br>
                     <b>Status:</b> <?php echo $status?> <br><br>
                 </div>
                 <div id="group">
@@ -112,8 +119,8 @@
                         for($i=0; $i<count($groupsdata); $i++){
                             ?>
                             <div >
-                                <b>Group Name: </b> <?php echo $groupsdata[$i]['name'] ?><br>
-                                <b>Votes:  </b><?php echo $groupsdata[$i]['votes'] ?><br>
+                                <b>Group Name: </b> <?php echo $groupsdata[$i]['name'] ?><br><br>
+                                <b>Votes:  </b><?php echo $groupsdata[$i]['votes'] ?>
                                 <form action="../api/vote.php" method="POST">
                                     <input type="hidden" name="gvotes" value="<?php echo $groupsdata[$i]['votes'] ?>">
                                     <input type="hidden" name="gid" value="<?php echo $groupsdata[$i]['id'] ?>">

@@ -2,49 +2,55 @@
 
 <head>
     <title>Online Voting system</title>
+    <link rel="icon" type="image/x-icon" href="../favicon.png">
     <link rel="stylesheet" href="../css/stylesheet.css">
 </head>
 
 <body>
-    <style>
-       img{
-           position: fixed;
-           min-height: 100%;
-           min-width: 100%;
-           right: 0;
-           bottom: 0;
-           z-index: -1;
-           opacity: 0.6;
-       }
-        #address {
-            height: auto;
-        }
-
-        #btn {
-            background-color: cornflowerblue;
-        }
-    </style>
     <center>
-    <img src="../votes.jpg">
-    <div id="headersection">
-        <h1 style="color: crimson;">online voting system</h1>
-    </div>
-    <hr>
-    <h1 style="color: rgb(42, 7, 245);">Registration</h1>
-    <form action="../api/register.php" method="POST">
-        <input type="text" name="name" placeholder="Enter Name"><br><br>
-        <input type="number" name="mobile" placeholder="Enter Mobile"><br><br>
-        <input type="password" name="password" placeholder="Enter Password"><br><br>
-        <input type="password" name="cpassword" placeholder="Confirm Password"><br><br>
-        <input id="address" type="text" name="address" placeholder="Enter Address"><br><br>
-        <b>Select Your Role:</b><select name="role">
-            <option value="1">Voter</option>
-            <option value="2">Group</option>
-        </select><br><br>
-        <button id="btn">Register</button><br><br>
-        Already User?<a href="../index.html">login here</a>
-    </form>
-</center>
+        <img src="../votes.jpg">
+        <div id="headersection">
+            <h1 style="color: #371B58">Online Voting System</h1>
+        </div>
+        <hr>
+        <form id="form_id" method="POST">
+            <h1 style="color: #371B58">Registration</h1>
+            <input type="text" name="name" placeholder="Enter Name"><br><br>
+            <input type="text" name="mobile" id="reg_no" placeholder="Enter Registration Number"><br><br>
+            <input type="password" name="password" id="pass" placeholder="Enter Password"><br><br>
+            <input type="password" name="cpassword" placeholder="Confirm Password"><br><br>
+            <input id="address" type="text" name="address" placeholder="Enter Branch"><br><br>
+            <p class="text">Select Your Role:&nbsp; &nbsp;</p><select id="dropbox" name="role">
+                <option value="1">Voter</option>
+                <option value="2">Group</option>
+            </select><br><br>
+            <button onclick="checkPassword()" id="loginbtn">Register</button><br><br>
+            <p class="text">Already User?</p><a href="../index.html">login here</a>
+        </form>
+    </center>
+
+    <script>
+        function checkPassword() {
+            let inputtxt = document.getElementById("pass");
+            var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+
+            let regno = document.getElementById("reg_no");
+            var format = /19[l|L]31[a|A]0\d[\w|\d]\d/;
+
+            if (regno.value.match(format)) {
+                if (inputtxt.value.match(passw)) {
+                    document.getElementById("form_id").action = "../api/register.php";
+                }
+                else {
+                    alert('Password should be between 6 to 20 characters.\nIt should include uppercase ,lowecase and a number');
+                    window.location = "register.html";
+                }
+            }
+            else {
+                alert("Enter a valid registered Number. Ex: 19L31A0555");
+            }
+        }
+    </script>
 </body>
 
 </html>

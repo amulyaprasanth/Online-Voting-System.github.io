@@ -1,6 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap');
+
 body{
     text-align: center;
-    
+}
+
+form{
+    padding-top: 100px;
+}
+
+h1{
+    color: #333C83;
+}
+
+.text{
+    font-family: Montserrat;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: lighter;
 }
 
 #imagecss{
@@ -14,8 +32,7 @@ body{
 }
 
 #headersection h1{
-    font-family: cursive;
-    
+    font-family: "Ubuntu";    
 }
 input{
     padding: 10px;
@@ -24,12 +41,24 @@ input{
 #dropbox{
     padding: 5px;
     border-radius: 5px;
-    width: 13%;
 }
 #loginbtn{
-    padding: 5px;
+    padding: 6px 10px 6px 10px;
     border-radius: 5px;
-    background-color: cornflowerblue;
+    background-color: #371B58;
     font-size: 15px;
     color: white;
 }
+
+img{
+    position: fixed;
+    min-height: 100%;
+    min-width: 100%;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    opacity: 0.6;
+}
+ #address {
+     height: auto;
+ }
